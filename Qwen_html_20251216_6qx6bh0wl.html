@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIMIA Labs — Сайты под ключ</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800&display=swap">
+  <style id="theme-styles">
+    /* Стили будут загружены при старте */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">VIMIA Labs</div>
+    <nav>
+      <a href="#uslugi">Услуги</a>
+      <a href="#portfolio">Работы</a>
+      <a href="#pricing">Цены</a>
+      <a href="#" id="auth-btn">Вход / Регистрация</a>
+      <a href="#" id="lk-btn" style="display:none;">ЛК</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Сайты, которые работают — а не просто красиво выглядят</h1>
+    <p>Разработка под ключ. Быстро, честно, без переплат. Идеально для старта.</p>
+    <a href="#" class="btn" id="start-btn">Начать за 5 минут</a>
+  </div>
+
+  <!-- Услуги -->
+  <section id="uslugi">
+    <h2>Наши услуги</h2>
+    <div class="grid">
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M3 9L12 2L21 9V20C21 20.53 20.79 21.04 20.41 21.41C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.41C3.21 21.04 3 20.53 3 20V9Z" 
+                  stroke="url(#grad1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 22V12H15V22" stroke="url(#grad1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="grad1" x1="3" y1="2" x2="21" y2="22"><stop stop-color="#9d4edd"/><stop offset="1" stop-color="#b76dff"/></linearGradient></defs>
+          </svg>
+          <h3>Сайты под заказ</h3>
+        </div>
+        <p>Визитки, лендинги, корп-сайты, магазины — адаптивные, быстрые, с SEO.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#grad2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="url(#grad2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="url(#grad2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="grad2" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#9d4edd"/><stop offset="1" stop-color="#b76dff"/></linearGradient></defs>
+          </svg>
+          <h3>Хостинг и домены</h3>
+        </div>
+        <p>Домен .ru / .рф, SSL, почта, хостинг — всё за 1 500 ₽/год.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="url(#grad3)" stroke-width="1.8"/>
+            <path d="M18 12H6M18 12L14 8M18 12L14 16" stroke="url(#grad3)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="grad3" x1="6" y1="8" x2="18" y2="16"><stop stop-color="#9d4edd"/><stop offset="1" stop-color="#b76dff"/></linearGradient></defs>
+          </svg>
+          <h3>Реклама</h3>
+        </div>
+        <p>Настроим таргет в ВК, Telegram — приведём реальных клиентов.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="url(#grad4)" stroke-width="1.8"/>
+            <path d="M12 6V12L16 14" stroke="url(#grad4)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="grad4" x1="6" y1="6" x2="18" y2="14"><stop stop-color="#9d4edd"/><stop offset="1" stop-color="#b76dff"/></linearGradient></defs>
+          </svg>
+          <h3>Срочная помощь</h3>
+        </div>
+        <p>Сайт за 48 часов или срочный фикс — без очередей.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Портфолио -->
+  <section id="portfolio">
+    <h2>Наши работы</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Лендинг кофейни</h3>
+        <p>+40% заказов за 2 недели</p>
+      </div>
+      <div class="card">
+        <h3>Сайт бухгалтера</h3>
+        <p>Доверие + клиенты</p>
+      </div>
+      <div class="card">
+        <h3>Интернет-магазин</h3>
+        <p>120 заказов/месяц</p>
+      </div>
+      <div class="card">
+        <h3>Портфолио дизайнера</h3>
+        <p>Анимации, гладкость</p>
+      </div>
+      <div class="card">
+        <h3>Сайт ресторана</h3>
+        <p>Онлайн-бронирование</p>
+      </div>
+      <div class="card">
+        <h3>Скоро: ваш проект</h3>
+        <p>Здесь</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Цены с СКИДКАМИ -->
+  <section id="pricing">
+    <h2>Цены (скидка 30% до 31 декабря!)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Визитка</h3>
+        <div><span style="text-decoration:line-through; opacity:0.6;">7 000 ₽</span> <strong>5 000 ₽</strong></div>
+        <ul>
+          <li>До 5 блоков</li>
+          <li>Адаптив</li>
+          <li>Форма</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Лендинг</h3>
+        <div><span style="text-decoration:line-through; opacity:0.6;">12 000 ₽</span> <strong>9 000 ₽</strong></div>
+        <ul>
+          <li>Продающая страница</li>
+          <li>CRM</li>
+          <li>Аналитика</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Бизнес+</h3>
+        <div><span style="text-decoration:line-through; opacity:0.6;">35 000 ₽</span> <strong>25 000 ₽</strong></div>
+        <ul>
+          <li>Корп-сайт до 15 стр.</li>
+          <li>ЛК клиента</li>
+          <li>Интеграция с 1С</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Премиум</h3>
+        <div><span style="text-decoration:line-through; opacity:0.6;">55 000 ₽</span> <strong>40 000 ₽</strong></div>
+        <ul>
+          <li>Уникальный дизайн</li>
+          <li>Анимации</li>
+          <li>SEO-оптимизация</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Корпоративный PRO</h3>
+        <div><span style="text-decoration:line-through; opacity:0.6;">100 000 ₽</span> <strong>70 000 ₽</strong></div>
+        <ul>
+          <li>Многосайтовость</li>
+          <li>Мультиязычность</li>
+          <li>Поддержка 1 год</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Интернет-магазин</h3>
+        <div><span style="text-decoration:line-through; opacity:0.6;">35 000 ₽</span> <strong>25 000 ₽</strong></div>
+        <ul>
+          <li>Каталог</li>
+          <li>Корзина</li>
+          <li>Оплата</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 VIMIA Labs. Все права защищены.<br>
+    Напишите в <a href="https://t.me/ваш_юзер">Telegram</a> или <a href="https://wa.me/ваш_номер">WhatsApp</a>
+  </footer>
+
+  <!-- Auth Modal -->
+  <div id="auth-modal">
+    <div id="auth-content">
+      <button class="close-modal">&times;</button>
+      <h2>Вход / Регистрация</h2>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="auth-email" required>
+      </div>
+      <div class="form-group">
+        <label>Пароль</label>
+        <input type="password" id="auth-password" required>
+      </div>
+      <button class="btn" id="register-btn" style="margin-right:10px;">Регистрация</button>
+      <button class="btn" id="login-btn">Вход</button>
+      <p style="margin-top:15px; font-size:0.95rem;">
+        После регистрации вы получите письмо для подтверждения.
+      </p>
+    </div>
+  </div>
+
+  <!-- Dashboard Sidebar -->
+  <div id="dashboard-sidebar">
+    <div class="sidebar-header">
+      <h3>Личный кабинет</h3>
+      <button class="close-sidebar">&times;</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" id="tab-orders">Мои заказы</a>
+      <a href="#" id="tab-order">Сделать заказ</a>
+      <a href="#" id="tab-chat">Поддержка</a>
+      <a href="#" id="tab-settings">Настройки</a>
+    </nav>
+    <button class="btn" id="logout-btn" style="background:#555; margin-top:20px;">Выйти</button>
+  </div>
+
+  <div class="overlay" id="dashboard-overlay"></div>
+
+  <!-- Order Form (внутри сайдбара) -->
+  <div id="order-form" style="display:none; margin-top:1.5rem;">
+    <h3>Оформить заказ</h3>
+    <div class="form-group">
+      <label>Тариф</label>
+      <select id="order-tariff">
+        <option value="vizitka">Визитка — 5 000 ₽</option>
+        <option value="landing">Лендинг — 9 000 ₽</option>
+        <option value="business">Бизнес+ — 25 000 ₽</option>
+        <option value="premium">Премиум — 40 000 ₽</option>
+        <option value="pro">Корп. PRO — 70 000 ₽</option>
+        <option value="shop">Магазин — 25 000 ₽</option>
+      </select>
+    </div>
+    <button class="btn" id="fake-order-btn">Создать заказ</button>
+  </div>
+
+  <!-- Chat -->
+  <div id="chat-content" style="display:none; margin-top:1.5rem;">
+    <h3>Чат с поддержкой</h3>
+    <div id="chat-messages" style="height:150px; overflow-y:auto; padding:10px; background:rgba(0,0,0,0.1); border-radius:8px; margin-bottom:1rem;"></div>
+    <div class="form-group">
+      <textarea id="chat-message" placeholder="Напишите..." rows="2"></textarea>
+    </div>
+    <button class="btn btn-sm" id="send-message-btn">Отправить</button>
+  </div>
+
+  <!-- Settings -->
+  <div id="profile-form" style="display:none; margin-top:1.5rem;">
+    <div class="form-group">
+      <label>Имя</label>
+      <input type="text" id="profile-name" placeholder="Ваше имя">
+    </div>
+    <div class="form-group">
+      <label>Ник</label>
+      <input type="text" id="profile-nick" placeholder="Ник">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="profile-email" disabled>
+    </div>
+    <button class="btn btn-sm" id="save-profile" style="margin-top:10px;">Сохранить</button>
+    <button class="btn btn-sm" id="toggle-theme" style="margin-top:10px; background:#555;">Сменить тему</button>
+  </div>
+
+  <!-- === ГЛАВНЫЙ JS === -->
+  <script>
+    // === ТЕМЫ ===
+    const themes = {
+      dark: {
+        bg: '#090911',
+        bgGradient: 'radial-gradient(circle at 25% 20%, #0d0d19 0%, #090911 60%, #06060a 100%)',
+        cardBg: 'rgba(20, 16, 32, 0.75)',
+        accent: '#9d4edd',
+        accentLight: '#b76dff',
+        fg: '#f9f7ff',
+        fgMuted: '#d0cce5',
+        borderLight: 'rgba(100, 80, 160, 0.2)'
+      },
+      light: {
+        bg: '#ffffff',
+        bgGradient: 'linear-gradient(135deg, #f5f3ff 0%, #eae6ff 100%)',
+        cardBg: 'rgba(255, 255, 255, 0.95)',
+        accent: '#7b2cbf',
+        accentLight: '#9d4edd',
+        fg: '#1a1a2e',
+        fgMuted: '#555577',
+        borderLight: 'rgba(100, 80, 160, 0.15)'
+      }
+    };
+
+    function applyTheme(themeName) {
+      const t = themes[themeName];
+      const s = `
+        :root {
+          --bg: ${t.bg};
+          --bg-gradient: ${t.bgGradient};
+          --card-bg: ${t.cardBg};
+          --accent: ${t.accent};
+          --accent-light: ${t.accentLight};
+          --fg: ${t.fg};
+          --fg-muted: ${t.fgMuted};
+          --border-light: ${t.borderLight};
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',system-ui,sans-serif; background:var(--bg-gradient); color:var(--fg); line-height:1.6; min-height:100vh; overflow-x:hidden; }
+        header { padding:1.6rem 5%; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; background:rgba(10,10,18,0.85); backdrop-filter:blur(12px); z-index:100; border-bottom:1px solid var(--border-light); }
+        .logo { font-size:2.2rem; font-weight:800; background:linear-gradient(90deg,#e8dfff,var(--accent-light)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        nav a { margin-left:1.9rem; color:var(--fg-muted); text-decoration:none; font-weight:600; font-size:1.05rem; position:relative; transition:color 0.3s; }
+        nav a:hover { color:#fff; }
+        nav a::after { content:''; position:absolute; bottom:-5px; left:0; width:0; height:2.5px; background:var(--accent); border-radius:2px; transition:width 0.3s ease; }
+        nav a:hover::after { width:100%; }
+        .hero { text-align:center; padding:7.5rem 0 5.5rem; }
+        .hero h1 { font-size:3.7rem; font-weight:800; margin-bottom:1.5rem; background:linear-gradient(90deg,#ffffff,var(--accent-light)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; line-height:1.05; }
+        .hero p { font-size:1.28rem; max-width:720px; margin:0 auto 2.8rem; color:var(--fg-muted); opacity:0.95; }
+        .btn { display:inline-block; padding:1.1rem 2.5rem; background:var(--accent); color:white; text-decoration:none; border-radius:14px; font-weight:700; font-size:1.08rem; transition:all 0.35s cubic-bezier(0.18,0.89,0.32,1.2); border:none; cursor:pointer; box-shadow:0 8px 24px rgba(157,78,221,0.35); }
+        .btn:hover { background:var(--accent-light); transform:translateY(-4px); box-shadow:0 12px 32px rgba(157,78,221,0.5); }
+        section { padding:5.5rem 0; }
+        h2 { font-size:2.3rem; text-align:center; margin-bottom:3.8rem; font-weight:800; position:relative; }
+        h2::after { content:''; display:block; width:70px; height:4px; background:linear-gradient(90deg,var(--accent),var(--accent-light)); margin:1.1rem auto 0; border-radius:2px; }
+        .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(285px,1fr)); gap:2.3rem; margin-top:1.6rem; }
+        .card { background:var(--card-bg); border-radius:20px; padding:2.2rem; transition:all 0.4s; backdrop-filter:blur(10px); border:1px solid var(--border-light); position:relative; overflow:hidden; }
+        .card:hover { transform:translateY(-8px); border-color:rgba(157,78,221,0.45); box-shadow:0 14px 30px rgba(157,78,221,0.35); }
+        .card h3 { font-size:1.55rem; margin-bottom:0.8rem; font-weight:700; color:var(--fg); }
+        .card p, .card ul li { color:var(--fg-muted); font-size:1.06rem; line-height:1.6; }
+        .card ul { list-style:none; padding:0; margin-top:1.2rem; }
+        .card ul li::before { content:"✓"; color:#4ade80; margin-right:0.8rem; font-weight:bold; }
+        #auth-modal, #dashboard-sidebar { position:fixed; top:0; width:100%; height:100%; z-index:1000; }
+        #auth-modal { background:rgba(0,0,0,0.7); display:none; justify-content:center; align-items:center; }
+        #auth-content { background:var(--card-bg); border-radius:20px; padding:2.5rem; width:90%; max-width:450px; border:1px solid var(--border-light); }
+        #dashboard-sidebar { right:-300px; width:280px; background:var(--card-bg); border-left:1px solid var(--border-light); padding:2rem; transition:right 0.4s ease; }
+        #dashboard-sidebar.open { right:0; }
+        .close-modal, .close-sidebar { background:none; border:none; color:var(--fg-muted); font-size:1.5rem; cursor:pointer; float:right; }
+        .sidebar-nav a { display:block; padding:0.8rem 0; color:var(--fg-muted); text-decoration:none; border-left:3px solid transparent; }
+        .sidebar-nav a:hover { color:var(--accent-light); border-left-color:var(--accent); }
+        .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:none; z-index:998; }
+        .overlay.active { display:block; }
+        .form-group { margin-bottom:1.5rem; }
+        .form-group input, .form-group textarea, .form-group select { width:100%; padding:0.8rem 1rem; background:rgba(15,12,28,0.6); border:1px solid rgba(90,70,130,0.45); border-radius:8px; color:var(--fg); }
+        .form-group input[type="text"], .form-group input[type="email"] { background:rgba(240,240,240,0.8); color:#333; }
+        footer { text-align:center; padding:2.8rem; background:rgba(5,5,11,0.7); color:var(--fg-muted); font-size:0.99rem; border-top:1px solid var(--border-light); backdrop-filter:blur(10px); }
+        footer a { color:var(--accent-light); text-decoration:none; }
+        .order-item, #profile-form .form-group, #chat-content .form-group { background:rgba(15,12,28,0.6); padding:1rem; border-radius:10px; margin-bottom:0.8rem; border:1px solid var(--border-light); }
+        .btn-sm { padding:0.5rem 1rem; font-size:0.95rem; }
+        @media (max-width:768px) {
+          header { flex-direction:column; gap:1.3rem; }
+          .hero h1 { font-size:2.6rem; }
+          .card { padding:1.9rem; }
+          #dashboard-sidebar { width:100%; right:-100%; }
+          #dashboard-sidebar.open { right:0; }
+        }
+      `;
+      document.getElementById('theme-styles').innerHTML = s;
+      localStorage.setItem('theme', themeName);
+    }
+
+    // Применяем тему
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    // === FIREBASE ===
+    const firebaseConfig = {
+      apiKey: "AIzaSyCHX9eYLF3BSrEXIHxteDK0D1fcVuUFkIA",
+      authDomain: "vimia-labs.firebaseapp.com",
+      projectId: "vimia-labs",
+      storageBucket: "vimia-labs.firebasestorage.app",
+      messagingSenderId: "579748361018",
+      appId: "1:579748361018:web:71e8061aff12148f6ad603",
+      measurementId: "G-KJW78YGW9T"
+    };
+
+    let auth, db;
+
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+
+    async function initFirebase() {
+      await loadScript("https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js");
+      await loadScript("https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js");
+      await loadScript("https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js");
+
+      const app = firebase.initializeApp(firebaseConfig);
+      auth = firebase.auth();
+      db = firebase.firestore();
+
+      // === ОБРАБОТЧИКИ ===
+      document.getElementById('auth-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('auth-modal').style.display = 'flex';
+      });
+
+      document.querySelector('.close-modal').addEventListener('click', () => {
+        document.getElementById('auth-modal').style.display = 'none';
+      });
+
+      // Регистрация
+      document.getElementById('register-btn').addEventListener('click', async () => {
+        const email = document.getElementById('auth-email').value;
+        const password = document.getElementById('auth-password').value;
+        if (!email || !password) return alert('Заполните поля');
+        try {
+          await auth.createUserWithEmailAndPassword(email, password);
+          await auth.currentUser.sendEmailVerification();
+          alert('Проверьте почту для подтверждения!');
+          document.getElementById('auth-modal').style.display = 'none';
+        } catch (error) {
+          alert(error.message);
+        }
+      });
+
+      // Вход
+      document.getElementById('login-btn').addEventListener('click', async () => {
+        const email = document.getElementById('auth-email').value;
+        const password = document.getElementById('auth-password').value;
+        if (!email || !password) return alert('Заполните поля');
+        try {
+          await auth.signInWithEmailAndPassword(email, password);
+          document.getElementById('lk-btn').style.display = 'inline';
+          document.getElementById('auth-btn').style.display = 'none';
+          document.getElementById('auth-modal').style.display = 'none';
+          document.getElementById('profile-email').value = email;
+        } catch (error) {
+          alert(error.message);
+        }
+      });
+
+      // ЛК
+      document.getElementById('lk-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('dashboard-sidebar').classList.add('open');
+        document.getElementById('dashboard-overlay').classList.add('active');
+        loadOrders();
+      });
+
+      document.querySelector('.close-sidebar').addEventListener('click', closeSidebar);
+      document.getElementById('dashboard-overlay').addEventListener('click', closeSidebar);
+
+      function closeSidebar() {
+        document.getElementById('dashboard-sidebar').classList.remove('open');
+        document.getElementById('dashboard-overlay').classList.remove('active');
+      }
+
+      // Вкладки
+      document.getElementById('tab-orders').addEventListener('click', () => {
+        document.getElementById('order-form').style.display = 'none';
+        document.getElementById('chat-content').style.display = 'none';
+        document.getElementById('profile-form').style.display = 'none';
+        loadOrders();
+      });
+
+      document.getElementById('tab-order').addEventListener('click', () => {
+        document.getElementById('orders-list').style.display = 'none';
+        document.getElementById('chat-content').style.display = 'none';
+        document.getElementById('profile-form').style.display = 'none';
+        document.getElementById('order-form').style.display = 'block';
+      });
+
+      document.getElementById('tab-chat').addEventListener('click', () => {
+        document.getElementById('orders-list').style.display = 'none';
+        document.getElementById('order-form').style.display = 'none';
+        document.getElementById('profile-form').style.display = 'none';
+        document.getElementById('chat-content').style.display = 'block';
+        loadMessages();
+      });
+
+      document.getElementById('tab-settings').addEventListener('click', () => {
+        document.getElementById('orders-list').style.display = 'none';
+        document.getElementById('order-form').style.display = 'none';
+        document.getElementById('chat-content').style.display = 'none';
+        document.getElementById('profile-form').style.display = 'block';
+      });
+
+      // Заказ
+      document.getElementById('fake-order-btn').addEventListener('click', async () => {
+        const user = auth.currentUser;
+        if (!user) return alert('Сначала войдите');
+        const tariff = document.getElementById('order-tariff').value;
+        const priceMap = {
+          vizitka: 5000, landing: 9000, business: 25000,
+          premium: 40000, pro: 70000, shop: 25000
+        };
+        const total = priceMap[tariff.split(' ')[0]] || 5000;
+        const newOrder = {
+          user_id: user.uid,
+          site_type: tariff,
+          total: total,
+          status: 'pending',
+          created_at: new Date().toISOString()
+        };
+        const docRef = await db.collection('orders').add(newOrder);
+        alert(`Заказ #${docRef.id} успешно создан!`);
+        loadOrders();
+      });
+
+      // Чат
+      document.getElementById('send-message-btn').addEventListener('click', async () => {
+        const user = auth.currentUser;
+        const msg = document.getElementById('chat-message').value.trim();
+        if (!user || !msg) return;
+        await db.collection('messages').add({
+          user_id: user.uid,
+          content: msg,
+          created_at: new Date().toISOString()
+        });
+        document.getElementById('chat-message').value = '';
+        loadMessages();
+      });
+
+      // Настройки
+      document.getElementById('save-profile').addEventListener('click', () => {
+        alert('Профиль сохранён!');
+      });
+
+      document.getElementById('toggle-theme').addEventListener('click', () => {
+        const current = localStorage.getItem('theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+
+      // Logout
+      document.getElementById('logout-btn').addEventListener('click', () => {
+        auth.signOut();
+        document.getElementById('lk-btn').style.display = 'none';
+        document.getElementById('auth-btn').style.display = 'inline';
+        closeSidebar();
+      });
+
+      // Загрузка заказов
+      async function loadOrders() {
+        const user = auth.currentUser;
+        if (!user) return;
+        try {
+          const snapshot = await db.collection('orders')
+            .where('user_id', '==', user.uid)
+            .orderBy('created_at', 'desc')
+            .get();
+          const container = document.querySelector('#orders-list') || 
+            document.getElementById('dashboard-sidebar');
+          if (!document.getElementById('orders-list')) {
+            const ordersDiv = document.createElement('div');
+            ordersDiv.id = 'orders-list';
+            container.appendChild(ordersDiv);
+          }
+          const ordersDiv = document.getElementById('orders-list');
+          if (snapshot.empty) {
+            ordersDiv.innerHTML = '<p style="color:var(--fg-muted);">Нет заказов.</p>';
+          } else {
+            ordersDiv.innerHTML = snapshot.docs.map(doc => `
+              <div class="order-item">
+                <strong>Заказ #${doc.id}</strong><br>
+                Тип: ${doc.data().site_type}<br>
+                Сумма: ${doc.data().total.toLocaleString()} ₽<br>
+                Статус: ${doc.data().status}
+              </div>
+            `).join('');
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      // Загрузка чата
+      async function loadMessages() {
+        const user = auth.currentUser;
+        if (!user) return;
+        try {
+          const snapshot = await db.collection('messages')
+            .where('user_id', '==', user.uid)
+            .orderBy('created_at', 'asc')
+            .get();
+          const container = document.getElementById('chat-messages');
+          container.innerHTML = snapshot.docs.map(doc => `
+            <div style="text-align:right; margin-bottom:8px;">
+              <strong>Вы</strong>: ${doc.data().content}
+            </div>
+          `).join('');
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      // Проверка сессии
+      auth.onAuthStateChanged(user => {
+        if (user) {
+          document.getElementById('lk-btn').style.display = 'inline';
+          document.getElementById('auth-btn').style.display = 'none';
+          document.getElementById('profile-email').value = user.email;
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initFirebase);
+  </script>
+</body>
+</html>
