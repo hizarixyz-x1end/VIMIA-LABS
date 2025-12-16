@@ -315,8 +315,30 @@
         section { padding:5.5rem 0; }
         h2 { font-size:2.3rem; text-align:center; margin-bottom:3.8rem; font-weight:800; position:relative; }
         h2::after { content:''; display:block; width:70px; height:4px; background:linear-gradient(90deg,var(--accent),var(--accent-light)); margin:1.1rem auto 0; border-radius:2px; }
-        .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(285px,1fr)); gap:2.3rem; margin-top:1.6rem; }
-        .card { background:var(--card-bg); border-radius:20px; padding:2.2rem; transition:all 0.4s; backdrop-filter:blur(10px); border:1px solid var(--border-light); position:relative; overflow:hidden; }
+        .grid { 
+          display:grid; 
+          grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); 
+          gap:2.3rem; 
+          margin-top:1.6rem; 
+          max-width: 1400px;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 0 1rem;
+        }
+        .card { 
+          background:var(--card-bg); 
+          border-radius:20px; 
+          padding:2.2rem; 
+          transition:all 0.4s; 
+          backdrop-filter:blur(10px); 
+          border:1px solid var(--border-light); 
+          position:relative; 
+          overflow:hidden; 
+          min-height: 220px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
         .card:hover { transform:translateY(-8px); border-color:rgba(157,78,221,0.45); box-shadow:0 14px 30px rgba(157,78,221,0.35); }
         .card h3 { font-size:1.55rem; margin-bottom:0.8rem; font-weight:700; color:var(--fg); }
         .card p, .card ul li { color:var(--fg-muted); font-size:1.06rem; line-height:1.6; }
@@ -388,56 +410,81 @@
       db = firebase.firestore();
 
       // === ОБРАБОТЧИКИ ===
-      document.getElementById('auth-btn').addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('auth-modal').style.display = 'flex';
-      });
+      const authBtn = document.getElementById('auth-btn');
+      if(authBtn) {
+        authBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('auth-modal').style.display = 'flex';
+        });
+      }
 
-      document.querySelector('.close-modal').addEventListener('click', () => {
-        document.getElementById('auth-modal').style.display = 'none';
-      });
+      const closeModalBtn = document.querySelector('.close-modal');
+      if(closeModalBtn) {
+        closeModalBtn.addEventListener('click', function() {
+          document.getElementById('auth-modal').style.display = 'none';
+        });
+      }
 
       // Регистрация
-      document.getElementById('register-btn').addEventListener('click', async () => {
-        const email = document.getElementById('auth-email').value;
-        const password = document.getElementById('auth-password').value;
-        if (!email || !password) return alert('Заполните поля');
-        try {
-          await auth.createUserWithEmailAndPassword(email, password);
-          await auth.currentUser.sendEmailVerification();
-          alert('Проверьте почту для подтверждения!');
-          document.getElementById('auth-modal').style.display = 'none';
-        } catch (error) {
-          alert(error.message);
-        }
-      });
+      const registerBtn = document.getElementById('register-btn');
+      if(registerBtn) {
+        registerBtn.addEventListener('click', async function() {
+          const email = document.getElementById('auth-email').value;
+          const password = document.getElementById('auth-password').value;
+          if (!email || !password) return alert('Заполните поля');
+          try {
+            await auth.createUserWithEmailAndPassword(email, password);
+            await auth.currentUser.sendEmailVerification();
+            alert('Проверьте почту для подтверждения!');
+            document.getElementById('auth-modal').style.display = 'none';
+          } catch (error) {
+            alert(error.message);
+          }
+        });
+      }
 
       // Вход
-      document.getElementById('login-btn').addEventListener('click', async () => {
-        const email = document.getElementById('auth-email').value;
-        const password = document.getElementById('auth-password').value;
-        if (!email || !password) return alert('Заполните поля');
-        try {
-          await auth.signInWithEmailAndPassword(email, password);
-          document.getElementById('lk-btn').style.display = 'inline';
-          document.getElementById('auth-btn').style.display = 'none';
-          document.getElementById('auth-modal').style.display = 'none';
-          document.getElementById('profile-email').value = email;
-        } catch (error) {
-          alert(error.message);
-        }
-      });
+      const loginBtn = document.getElementById('login-btn');
+      if(loginBtn) {
+        loginBtn.addEventListener('click', async function() {
+          const email = document.getElementById('auth-email').value;
+          const password = document.getElementById('auth-password').value;
+          if (!email || !password) return alert('Заполните поля');
+          try {
+            await auth.signInWithEmailAndPassword(email, password);
+            const lkBtn = document.getElementById('lk-btn');
+            const authBtn = document.getElementById('auth-btn');
+            if(lkBtn) lkBtn.style.display = 'inline';
+            if(authBtn) authBtn.style.display = 'none';
+            document.getElementById('auth-modal').style.display = 'none';
+            const profileEmail = document.getElementById('profile-email');
+            if(profileEmail) profileEmail.value = email;
+          } catch (error) {
+            alert(error.message);
+          }
+        });
+      }
 
       // ЛК
-      document.getElementById('lk-btn').addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('dashboard-sidebar').classList.add('open');
-        document.getElementById('dashboard-overlay').classList.add('active');
-        loadOrders();
-      });
+      const lkBtn = document.getElementById('lk-btn');
+      if(lkBtn) {
+        lkBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('dashboard-sidebar').classList.add('open');
+          document.getElementById('dashboard-overlay').classList.add('active');
+          loadOrders();
+        });
+      }
 
-      document.querySelector('.close-sidebar').addEventListener('click', closeSidebar);
-      document.getElementById('dashboard-overlay').addEventListener('click', closeSidebar);
+      const closeSidebarBtn = document.querySelector('.close-sidebar');
+      if(closeSidebarBtn) {
+        closeSidebarBtn.addEventListener('click', closeSidebar);
+      }
+      
+      const overlay = document.getElementById('dashboard-overlay');
+      if(overlay) {
+        overlay.addEventListener('click', closeSidebar);
+      }
 
       function closeSidebar() {
         document.getElementById('dashboard-sidebar').classList.remove('open');
@@ -445,99 +492,161 @@
       }
 
       // Вкладки
-      document.getElementById('tab-orders').addEventListener('click', () => {
-        document.getElementById('order-form').style.display = 'none';
-        document.getElementById('chat-content').style.display = 'none';
-        document.getElementById('profile-form').style.display = 'none';
-        loadOrders();
-      });
+      const tabOrders = document.getElementById('tab-orders');
+      if(tabOrders) {
+        tabOrders.addEventListener('click', function() {
+          const orderForm = document.getElementById('order-form');
+          const chatContent = document.getElementById('chat-content');
+          const profileForm = document.getElementById('profile-form');
+          
+          if(orderForm) orderForm.style.display = 'none';
+          if(chatContent) chatContent.style.display = 'none';
+          if(profileForm) profileForm.style.display = 'none';
+          loadOrders();
+        });
+      }
 
-      document.getElementById('tab-order').addEventListener('click', () => {
-        document.getElementById('orders-list').style.display = 'none';
-        document.getElementById('chat-content').style.display = 'none';
-        document.getElementById('profile-form').style.display = 'none';
-        document.getElementById('order-form').style.display = 'block';
-      });
+      const tabOrder = document.getElementById('tab-order');
+      if(tabOrder) {
+        tabOrder.addEventListener('click', function() {
+          const ordersList = document.getElementById('orders-list');
+          const chatContent = document.getElementById('chat-content');
+          const profileForm = document.getElementById('profile-form');
+          const orderForm = document.getElementById('order-form');
+          
+          if(ordersList) ordersList.style.display = 'none';
+          if(chatContent) chatContent.style.display = 'none';
+          if(profileForm) profileForm.style.display = 'none';
+          if(orderForm) orderForm.style.display = 'block';
+        });
+      }
 
-      document.getElementById('tab-chat').addEventListener('click', () => {
-        document.getElementById('orders-list').style.display = 'none';
-        document.getElementById('order-form').style.display = 'none';
-        document.getElementById('profile-form').style.display = 'none';
-        document.getElementById('chat-content').style.display = 'block';
-        loadMessages();
-      });
+      const tabChat = document.getElementById('tab-chat');
+      if(tabChat) {
+        tabChat.addEventListener('click', function() {
+          const ordersList = document.getElementById('orders-list');
+          const orderForm = document.getElementById('order-form');
+          const profileForm = document.getElementById('profile-form');
+          const chatContent = document.getElementById('chat-content');
+          
+          if(ordersList) ordersList.style.display = 'none';
+          if(orderForm) orderForm.style.display = 'none';
+          if(profileForm) profileForm.style.display = 'none';
+          if(chatContent) chatContent.style.display = 'block';
+          loadMessages();
+        });
+      }
 
-      document.getElementById('tab-settings').addEventListener('click', () => {
-        document.getElementById('orders-list').style.display = 'none';
-        document.getElementById('order-form').style.display = 'none';
-        document.getElementById('chat-content').style.display = 'none';
-        document.getElementById('profile-form').style.display = 'block';
-      });
+      const tabSettings = document.getElementById('tab-settings');
+      if(tabSettings) {
+        tabSettings.addEventListener('click', function() {
+          const ordersList = document.getElementById('orders-list');
+          const orderForm = document.getElementById('order-form');
+          const chatContent = document.getElementById('chat-content');
+          const profileForm = document.getElementById('profile-form');
+          
+          if(ordersList) ordersList.style.display = 'none';
+          if(orderForm) orderForm.style.display = 'none';
+          if(chatContent) chatContent.style.display = 'none';
+          if(profileForm) profileForm.style.display = 'block';
+        });
+      }
 
       // Заказ
-      document.getElementById('fake-order-btn').addEventListener('click', async () => {
-        const user = auth.currentUser;
-        if (!user) return alert('Сначала войдите');
-        const tariff = document.getElementById('order-tariff').value;
-        const priceMap = {
-          vizitka: 5000, landing: 9000, business: 25000,
-          premium: 40000, pro: 70000, shop: 25000
-        };
-        const total = priceMap[tariff.split(' ')[0]] || 5000;
-        const newOrder = {
-          user_id: user.uid,
-          site_type: tariff,
-          total: total,
-          status: 'pending',
-          created_at: new Date().toISOString()
-        };
-        const docRef = await db.collection('orders').add(newOrder);
-        alert(`Заказ #${docRef.id} успешно создан!`);
-        loadOrders();
-      });
+      const fakeOrderBtn = document.getElementById('fake-order-btn');
+      if(fakeOrderBtn) {
+        fakeOrderBtn.addEventListener('click', async function() {
+          const user = auth.currentUser;
+          if (!user) return alert('Сначала войдите');
+          const tariff = document.getElementById('order-tariff').value;
+          const priceMap = {
+            vizitka: 5000, landing: 9000, business: 25000,
+            premium: 40000, pro: 70000, shop: 25000
+          };
+          const total = priceMap[tariff.split(' ')[0]] || 5000;
+          const newOrder = {
+            user_id: user.uid,
+            site_type: tariff,
+            total: total,
+            status: 'pending',
+            created_at: new Date().toISOString()
+          };
+          const docRef = await db.collection('orders').add(newOrder);
+          alert(`Заказ #${docRef.id} успешно создан!`);
+          loadOrders();
+        });
+      }
 
       // Чат
-      document.getElementById('send-message-btn').addEventListener('click', async () => {
-        const user = auth.currentUser;
-        const msg = document.getElementById('chat-message').value.trim();
-        if (!user || !msg) return;
-        await db.collection('messages').add({
-          user_id: user.uid,
-          content: msg,
-          created_at: new Date().toISOString()
+      const sendMessageBtn = document.getElementById('send-message-btn');
+      if(sendMessageBtn) {
+        sendMessageBtn.addEventListener('click', async function() {
+          const user = auth.currentUser;
+          const msg = document.getElementById('chat-message')?.value?.trim();
+          if (!user || !msg) return;
+          await db.collection('messages').add({
+            user_id: user.uid,
+            content: msg,
+            created_at: new Date().toISOString()
+          });
+          const chatInput = document.getElementById('chat-message');
+          if(chatInput) chatInput.value = '';
+          loadMessages();
         });
-        document.getElementById('chat-message').value = '';
-        loadMessages();
-      });
+      }
 
       // Настройки
-      document.getElementById('save-profile').addEventListener('click', () => {
-        alert('Профиль сохранён!');
-      });
+      const saveProfileBtn = document.getElementById('save-profile');
+      if(saveProfileBtn) {
+        saveProfileBtn.addEventListener('click', function() {
+          alert('Профиль сохранён!');
+        });
+      }
 
-      document.getElementById('toggle-theme').addEventListener('click', () => {
-        const current = localStorage.getItem('theme') || 'dark';
-        const next = current === 'dark' ? 'light' : 'dark';
-        applyTheme(next);
-      });
+      const toggleThemeBtn = document.getElementById('toggle-theme');
+      if(toggleThemeBtn) {
+        toggleThemeBtn.addEventListener('click', function() {
+          const current = localStorage.getItem('theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
 
       // Logout
-      document.getElementById('logout-btn').addEventListener('click', () => {
-        auth.signOut();
-        document.getElementById('lk-btn').style.display = 'none';
-        document.getElementById('auth-btn').style.display = 'inline';
-        closeSidebar();
-      });
+      const logoutBtn = document.getElementById('logout-btn');
+      if(logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+          auth.signOut();
+          const lkBtn = document.getElementById('lk-btn');
+          const authBtn = document.getElementById('auth-btn');
+          if(lkBtn) lkBtn.style.display = 'none';
+          if(authBtn) authBtn.style.display = 'inline';
+          closeSidebar();
+        });
+      }
 
       // Загрузка заказов
       async function loadOrders() {
         const user = auth.currentUser;
         if (!user) return;
         try {
-          const snapshot = await db.collection('orders')
-            .where('user_id', '==', user.uid)
-            .orderBy('created_at', 'desc')
-            .get();
+          // Используем get() без where и orderBy, а затем фильтруем на клиенте
+          const snapshot = await db.collection('orders').get();
+          const orders = [];
+          
+          snapshot.forEach(doc => {
+            const data = doc.data();
+            if(data.user_id === user.uid) {
+              orders.push({
+                id: doc.id,
+                ...data
+              });
+            }
+          });
+          
+          // Сортируем по дате создания в обратном порядке (новые первыми)
+          orders.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+          
           const container = document.querySelector('#orders-list') || 
             document.getElementById('dashboard-sidebar');
           if (!document.getElementById('orders-list')) {
@@ -546,15 +655,15 @@
             container.appendChild(ordersDiv);
           }
           const ordersDiv = document.getElementById('orders-list');
-          if (snapshot.empty) {
+          if (orders.length === 0) {
             ordersDiv.innerHTML = '<p style="color:var(--fg-muted);">Нет заказов.</p>';
           } else {
-            ordersDiv.innerHTML = snapshot.docs.map(doc => `
+            ordersDiv.innerHTML = orders.map(order => `
               <div class="order-item">
-                <strong>Заказ #${doc.id}</strong><br>
-                Тип: ${doc.data().site_type}<br>
-                Сумма: ${doc.data().total.toLocaleString()} ₽<br>
-                Статус: ${doc.data().status}
+                <strong>Заказ #${order.id}</strong><br>
+                Тип: ${order.site_type}<br>
+                Сумма: ${order.total.toLocaleString()} ₽<br>
+                Статус: ${order.status}
               </div>
             `).join('');
           }
@@ -568,16 +677,31 @@
         const user = auth.currentUser;
         if (!user) return;
         try {
-          const snapshot = await db.collection('messages')
-            .where('user_id', '==', user.uid)
-            .orderBy('created_at', 'asc')
-            .get();
+          // Используем get() без where и orderBy, а затем фильтруем на клиенте
+          const snapshot = await db.collection('messages').get();
+          const messages = [];
+          
+          snapshot.forEach(doc => {
+            const data = doc.data();
+            if(data.user_id === user.uid) {
+              messages.push({
+                id: doc.id,
+                ...data
+              });
+            }
+          });
+          
+          // Сортируем по дате создания (старые первыми)
+          messages.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+          
           const container = document.getElementById('chat-messages');
-          container.innerHTML = snapshot.docs.map(doc => `
-            <div style="text-align:right; margin-bottom:8px;">
-              <strong>Вы</strong>: ${doc.data().content}
-            </div>
-          `).join('');
+          if(container) {
+            container.innerHTML = messages.map(msg => `
+              <div style="text-align:right; margin-bottom:8px;">
+                <strong>Вы</strong>: ${msg.content}
+              </div>
+            `).join('');
+          }
         } catch (error) {
           console.error(error);
         }
@@ -585,10 +709,17 @@
 
       // Проверка сессии
       auth.onAuthStateChanged(user => {
+        const lkBtn = document.getElementById('lk-btn');
+        const authBtn = document.getElementById('auth-btn');
+        const profileEmail = document.getElementById('profile-email');
+        
         if (user) {
-          document.getElementById('lk-btn').style.display = 'inline';
-          document.getElementById('auth-btn').style.display = 'none';
-          document.getElementById('profile-email').value = user.email;
+          if(lkBtn) lkBtn.style.display = 'inline';
+          if(authBtn) authBtn.style.display = 'none';
+          if(profileEmail) profileEmail.value = user.email;
+        } else {
+          if(lkBtn) lkBtn.style.display = 'none';
+          if(authBtn) authBtn.style.display = 'inline';
         }
       });
     }
